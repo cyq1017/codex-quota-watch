@@ -136,6 +136,10 @@ final class WatchConnectivityReceiver: NSObject, ObservableObject, WCSessionDele
         apply(message)
     }
 
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
+        apply(userInfo)
+    }
+
     #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {}
 

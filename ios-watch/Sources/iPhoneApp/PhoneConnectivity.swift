@@ -41,9 +41,14 @@ final class PhoneConnectivity: NSObject, ObservableObject, WCSessionDelegate {
               let json = String(data: data, encoding: .utf8) else { return }
 
         let context = context(snapshotJSON: json, macURL: macURL, token: token)
-        try? WCSession.default.updateApplicationContext(context)
-        if WCSession.default.isReachable {
-            WCSession.default.sendMessage(context, replyHandler: nil, errorHandler: nil)
+        let session = WCSession.default
+        try? session.updateApplicationContext(context)
+        if session.isReachable {
+            session.sendMessage(context, replyHandler: nil) { _ in
+                session.transferUserInfo(context)
+            }
+        } else {
+            session.transferUserInfo(context)
         }
     }
 
