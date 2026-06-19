@@ -17,6 +17,7 @@ Updates local Xcode identifiers only:
   - iPhone app bundle id
   - watchOS app bundle id
   - iPhone widget extension bundle id
+  - watchOS complication extension bundle id
   - App Group entitlement ids
   - Swift AppConstants app group and background refresh task id
 
@@ -69,11 +70,13 @@ fi
 PHONE_ID="$BUNDLE_ID"
 WATCH_ID="${BUNDLE_ID}.watchkitapp"
 WIDGET_ID="${BUNDLE_ID}.widget"
+WATCH_WIDGET_ID="${BUNDLE_ID}.watchkitapp.quotawidget"
 BACKGROUND_TASK_ID="${BUNDLE_ID}.refresh"
 
 PHONE_ID="$PHONE_ID" \
 WATCH_ID="$WATCH_ID" \
 WIDGET_ID="$WIDGET_ID" \
+WATCH_WIDGET_ID="$WATCH_WIDGET_ID" \
 APP_GROUP="$APP_GROUP" \
 BACKGROUND_TASK_ID="$BACKGROUND_TASK_ID" \
 ROOT="$ROOT" \
@@ -88,6 +91,7 @@ root = Path(os.environ["ROOT"])
 phone_id = os.environ["PHONE_ID"]
 watch_id = os.environ["WATCH_ID"]
 widget_id = os.environ["WIDGET_ID"]
+watch_widget_id = os.environ["WATCH_WIDGET_ID"]
 app_group = os.environ["APP_GROUP"]
 background_task_id = os.environ["BACKGROUND_TASK_ID"]
 
@@ -107,7 +111,9 @@ project_text = project_path.read_text()
 
 def replace_bundle_id(match: re.Match[str]) -> str:
     current = match.group("value")
-    if current.endswith(".watchkitapp"):
+    if current.endswith(".watchkitapp.quotawidget"):
+        value = watch_widget_id
+    elif current.endswith(".watchkitapp"):
         value = watch_id
     elif current.endswith(".widget"):
         value = widget_id
@@ -148,6 +154,7 @@ for entitlements in (
     root / "ios-watch/Config/iPhoneApp.entitlements",
     root / "ios-watch/Config/WatchApp.entitlements",
     root / "ios-watch/Config/WidgetExtension.entitlements",
+    root / "ios-watch/Config/WatchWidgetExtension.entitlements",
 ):
     replace_text(entitlements, [(r"<string>group\.[^<]+</string>", f"<string>{app_group}</string>")])
 
@@ -155,6 +162,7 @@ print("Updated iOS/watchOS identifiers:")
 print(f"  iPhone bundle id: {phone_id}")
 print(f"  Watch bundle id:  {watch_id}")
 print(f"  Widget bundle id: {widget_id}")
+print(f"  Watch widget id:  {watch_widget_id}")
 print(f"  App Group:        {app_group}")
 print(f"  BG task id:       {background_task_id}")
 PY

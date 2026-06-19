@@ -1,5 +1,6 @@
 import Foundation
 import WatchConnectivity
+import WidgetKit
 
 final class WatchConnectivityReceiver: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchConnectivityReceiver()
@@ -61,6 +62,7 @@ final class WatchConnectivityReceiver: NSObject, ObservableObject, WCSessionDele
             await MainActor.run {
                 self.snapshot = updatedSnapshot
                 SharedUsageStore.shared.save(updatedSnapshot)
+                WidgetCenter.shared.reloadTimelines(ofKind: CodingQuotaComplicationKind.value)
                 self.refreshRoute = .directOK
             }
             return true
@@ -110,6 +112,7 @@ final class WatchConnectivityReceiver: NSObject, ObservableObject, WCSessionDele
             if let decodedSnapshot {
                 self.snapshot = decodedSnapshot
                 SharedUsageStore.shared.save(decodedSnapshot)
+                WidgetCenter.shared.reloadTimelines(ofKind: CodingQuotaComplicationKind.value)
                 self.refreshRoute = .iPhone
             }
         }
@@ -131,6 +134,10 @@ final class WatchConnectivityReceiver: NSObject, ObservableObject, WCSessionDele
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         apply(message)
+    }
+
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
+        apply(userInfo)
     }
 
     #if os(iOS)

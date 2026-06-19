@@ -36,6 +36,10 @@ public enum AppConstants {
     public static let backgroundRefreshTaskID = "com.example.CodexQuota.refresh"
 }
 
+public enum CodingQuotaComplicationKind {
+    public static let value = "CodingQuotaComplication"
+}
+
 public enum WatchToken {
     private static let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-")
     private static let minimumLength = 24

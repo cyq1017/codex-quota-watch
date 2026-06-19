@@ -157,12 +157,13 @@ open ios-watch/CodingQuota.xcodeproj
 ### Xcode 最小操作路径
 
 1. 打开项目后，左侧选择 `CodingQuota` project。
-2. 依次点三个 target：
+2. 依次点四个 target：
    - `CodingQuota`
    - `CodingQuota Watch App`
    - `CodingQuotaWidgetExtension`
+   - `CodingQuotaWatchWidgetExtension`
 3. 进入 `Signing & Capabilities`。
-4. 三个 target 都选择同一个 Apple Team。
+4. 四个 target 都选择同一个 Apple Team。
 5. 确认 Bundle Identifier 已经从 `com.example...` 改成你自己的值。
 6. 确认 App Groups 使用同一个 group，例如 `group.com.yourname.CodexQuota`。
 7. 顶部运行设备选择你的 iPhone，不要选 Mac。
@@ -177,19 +178,20 @@ xcodebuild -downloadPlatform iOS
 
 真机安装不依赖 simulator runtime，但依赖 iPhone 连接、设备信任、Developer Mode 和签名配置。
 
-在 Xcode 里检查三个 target：
+在 Xcode 里检查四个 target：
 
 ```text
 CodingQuota
 CodingQuota Watch App
 CodingQuotaWidgetExtension
+CodingQuotaWatchWidgetExtension
 ```
 
 每个 target 都需要：
 
 - 选择自己的 Apple Team。
 - 确认 Bundle ID 是刚才脚本写入的值。
-- 如果账号支持 App Groups，三个 target 使用同一个 App Group；脚本已经写入 entitlement，但 Xcode 仍可能需要你在 Apple Developer 能力里确认。
+- 如果账号支持 App Groups，四个 target 使用同一个 App Group；脚本已经写入 entitlement，但 Xcode 仍可能需要你在 Apple Developer 能力里确认。表盘 Complication 必须依靠 Watch App 与 `CodingQuotaWatchWidgetExtension` 的 App Group 共享快照。
 - 如果暂时搞不定 App Groups，先跑 Watch App；iPhone 到 Watch 的同步主要靠 WatchConnectivity。
 
 默认占位 ID：
