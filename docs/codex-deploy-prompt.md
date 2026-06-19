@@ -30,10 +30,11 @@
    - xcrun simctl list runtimes 是否有对应 watchOS runtime。
    - xcodebuild -project ios-watch/CodingQuota.xcodeproj -scheme CodingQuota -showdestinations 是否能看到我的 iPhone。
 10. 如果 Xcode 报 watchOS platform/runtime 缺失，先告诉我需要在 Xcode > Settings... > Components 安装对应 watchOS platform。只有我明确同意时，才运行可能接近 4GB 的 xcodebuild -downloadPlatform watchOS。
-11. 打开 ios-watch/CodingQuota.xcodeproj 后，告诉我三个 target 都要选同一个 Apple Team：
+11. 打开 ios-watch/CodingQuota.xcodeproj 后，告诉我四个 target 都要选同一个 Apple Team：
    - CodingQuota
    - CodingQuota Watch App
    - CodingQuotaWidgetExtension
+   - CodingQuotaWatchWidgetExtension
 12. 如果 Xcode 报 No Account for Team、No profiles were found、需要 Apple ID 登录、iPhone Trust、Developer Mode、Personal Team、App Group、重新配对 Watch，请停下来给我具体操作，不要伪造安装成功。
 13. 如果需要命令行真机 build，用 /tmp 或系统 DerivedData 路径，不要把 DerivedData 写进仓库。
 14. 真机安装后，指导我在 iPhone App 扫码、点击 Fetch & Sync to Watch、打开 Watch App，并添加 iPhone small / medium Widget 验证最近快照。

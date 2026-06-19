@@ -44,12 +44,14 @@ def test_configure_ios_identifiers_updates_all_project_ids(tmp_path: Path) -> No
         "phone_entitlements": workspace / "ios-watch/Config/iPhoneApp.entitlements",
         "watch_entitlements": workspace / "ios-watch/Config/WatchApp.entitlements",
         "widget_entitlements": workspace / "ios-watch/Config/WidgetExtension.entitlements",
+        "watch_widget_entitlements": workspace / "ios-watch/Config/WatchWidgetExtension.entitlements",
     }
     text_by_name = {name: path.read_text() for name, path in files.items()}
 
     assert "PRODUCT_BUNDLE_IDENTIFIER = com.acme.CodingQuota;" in text_by_name["project"]
     assert "PRODUCT_BUNDLE_IDENTIFIER = com.acme.CodingQuota.watchkitapp;" in text_by_name["project"]
     assert "PRODUCT_BUNDLE_IDENTIFIER = com.acme.CodingQuota.widget;" in text_by_name["project"]
+    assert "PRODUCT_BUNDLE_IDENTIFIER = com.acme.CodingQuota.watchkitapp.quotawidget;" in text_by_name["project"]
     assert "public static let appGroupID = \"group.com.acme.CodingQuota\"" in text_by_name["shared"]
     assert "public static let backgroundRefreshTaskID = \"com.acme.CodingQuota.refresh\"" in text_by_name["shared"]
     assert "<string>com.acme.CodingQuota.refresh</string>" in text_by_name["phone_info"]

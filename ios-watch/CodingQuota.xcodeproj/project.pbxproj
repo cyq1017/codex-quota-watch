@@ -34,7 +34,10 @@
 		A0010000000000000000001C /* Icon-Watch-1024x1024@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000024 /* Icon-Watch-1024x1024@1x.png */; };
 		A00100000000000000000025 /* Shared/UsageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000001 /* Shared/UsageModels.swift */; };
 		A00100000000000000000026 /* WidgetExtension/CodingQuotaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000025 /* WidgetExtension/CodingQuotaWidget.swift */; };
-		A00100000000000000000027 /* CodingQuotaWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A00200000000000000000028 /* CodingQuotaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, CodeSignOnCopy, ); }; };
+		A00100000000000000000027 /* CodingQuotaWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A00200000000000000000028 /* CodingQuotaWidgetExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A00100000000000000000028 /* Shared/UsageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000001 /* Shared/UsageModels.swift */; };
+		A00100000000000000000029 /* WatchWidgetExtension/CodingQuotaComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00200000000000000000029 /* WatchWidgetExtension/CodingQuotaComplication.swift */; };
+		A0010000000000000000002A /* CodingQuotaWatchWidgetExtension.appex in Embed Watch Extensions */ = {isa = PBXBuildFile; fileRef = A0020000000000000000002C /* CodingQuotaWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A00B00000000000000000003;
 			remoteInfo = CodingQuotaWidgetExtension;
+		};
+		A00300000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00F00000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00B00000000000000000004;
+			remoteInfo = CodingQuotaWatchWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,6 +85,17 @@
 				A00100000000000000000027 /* CodingQuotaWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00400000000000000000003 /* Embed Watch Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A0010000000000000000002A /* CodingQuotaWatchWidgetExtension.appex in Embed Watch Extensions */,
+			);
+			name = "Embed Watch Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -112,6 +133,10 @@
 		A00200000000000000000026 /* Config/WidgetExtension-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config/WidgetExtension-Info.plist"; sourceTree = "<group>"; };
 		A00200000000000000000027 /* Config/WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Config/WidgetExtension.entitlements; sourceTree = "<group>"; };
 		A00200000000000000000028 /* CodingQuotaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CodingQuotaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00200000000000000000029 /* WatchWidgetExtension/CodingQuotaComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWidgetExtension/CodingQuotaComplication.swift; sourceTree = "<group>"; };
+		A0020000000000000000002A /* Config/WatchWidgetExtension-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Config/WatchWidgetExtension-Info.plist"; sourceTree = "<group>"; };
+		A0020000000000000000002B /* Config/WatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Config/WatchWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A0020000000000000000002C /* CodingQuotaWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CodingQuotaWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +155,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A00500000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00500000000000000000004 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,6 +189,7 @@
 				A00600000000000000000004 /* iPhoneApp */,
 				A00600000000000000000005 /* WatchApp */,
 				A0060000000000000000000A /* WidgetExtension */,
+				A0060000000000000000000B /* WatchWidgetExtension */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -201,6 +234,8 @@
 				A00200000000000000000013 /* Config/iPhoneApp.entitlements */,
 				A00200000000000000000014 /* Config/WatchApp.entitlements */,
 				A00200000000000000000027 /* Config/WidgetExtension.entitlements */,
+				A0020000000000000000002A /* Config/WatchWidgetExtension-Info.plist */,
+				A0020000000000000000002B /* Config/WatchWidgetExtension.entitlements */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -211,6 +246,7 @@
 				A0020000000000000000000A /* CodingQuota.app */,
 				A0020000000000000000000B /* CodingQuota Watch App.app */,
 				A00200000000000000000028 /* CodingQuotaWidgetExtension.appex */,
+				A0020000000000000000002C /* CodingQuotaWatchWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +275,14 @@
 				A00200000000000000000025 /* WidgetExtension/CodingQuotaWidget.swift */,
 			);
 			name = WidgetExtension;
+			sourceTree = "<group>";
+		};
+		A0060000000000000000000B /* WatchWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A00200000000000000000029 /* WatchWidgetExtension/CodingQuotaComplication.swift */,
+			);
+			name = WatchWidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,10 +316,12 @@
 				A00800000000000000000002 /* Sources */,
 				A00500000000000000000002 /* Frameworks */,
 				A00700000000000000000002 /* Resources */,
+				A00400000000000000000003 /* Embed Watch Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A00900000000000000000003 /* PBXTargetDependency */,
 			);
 			name = "CodingQuota Watch App";
 			productName = "CodingQuota Watch App";
@@ -297,6 +343,23 @@
 			name = CodingQuotaWidgetExtension;
 			productName = CodingQuotaWidgetExtension;
 			productReference = A00200000000000000000028 /* CodingQuotaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A00B00000000000000000004 /* CodingQuotaWatchWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00D00000000000000000005 /* Build configuration list for PBXNativeTarget "CodingQuotaWatchWidgetExtension" */;
+			buildPhases = (
+				A00800000000000000000004 /* Sources */,
+				A00500000000000000000004 /* Frameworks */,
+				A00700000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodingQuotaWatchWidgetExtension;
+			productName = CodingQuotaWatchWidgetExtension;
+			productReference = A0020000000000000000002C /* CodingQuotaWatchWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -321,6 +384,10 @@
 						CreatedOnToolsVersion = 26.5;
 						ProvisioningStyle = Automatic;
 					};
+					A00B00000000000000000004 = {
+						CreatedOnToolsVersion = 26.5;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = A00D00000000000000000001 /* Build configuration list for PBXProject "CodingQuota" */;
@@ -339,6 +406,7 @@
 				A00B00000000000000000001 /* CodingQuota */,
 				A00B00000000000000000002 /* CodingQuota Watch App */,
 				A00B00000000000000000003 /* CodingQuotaWidgetExtension */,
+				A00B00000000000000000004 /* CodingQuotaWatchWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -371,6 +439,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A00700000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00700000000000000000004 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,6 +490,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A00800000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00100000000000000000028 /* Shared/UsageModels.swift in Sources */,
+				A00100000000000000000029 /* WatchWidgetExtension/CodingQuotaComplication.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -427,6 +511,11 @@
 			isa = PBXTargetDependency;
 			target = A00B00000000000000000003 /* CodingQuotaWidgetExtension */;
 			targetProxy = A00300000000000000000002 /* PBXContainerItemProxy */;
+		};
+		A00900000000000000000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00B00000000000000000004 /* CodingQuotaWatchWidgetExtension */;
+			targetProxy = A00300000000000000000003 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -704,6 +793,59 @@
 			};
 			name = Release;
 		};
+		A00C00000000000000000009 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/WatchWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/WatchWidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CodexQuota.watchkitapp.quotawidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		A00C0000000000000000000A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/WatchWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/WatchWidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CodexQuota.watchkitapp.quotawidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -739,6 +881,15 @@
 			buildConfigurations = (
 				A00C00000000000000000007 /* Debug */,
 				A00C00000000000000000008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00D00000000000000000005 /* Build configuration list for PBXNativeTarget "CodingQuotaWatchWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00C00000000000000000009 /* Debug */,
+				A00C0000000000000000000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

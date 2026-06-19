@@ -25,10 +25,12 @@ scripts/configure-ios-identifiers.sh --bundle-id com.yourname.CodexQuota
 ```
 
 - 打开 `ios-watch/CodingQuota.xcodeproj`。
-- 对三个 target 选择同一个 Apple Team：
+- 首次同步后编辑 Apple Watch 表盘，在复杂功能槽位选择 `Codex Quota`；矩形槽位应同时显示 5h / 7d 额度。
+- 对四个 target 选择同一个 Apple Team：
   - `CodingQuota`
   - `CodingQuota Watch App`
   - `CodingQuotaWidgetExtension`
+  - `CodingQuotaWatchWidgetExtension`
 - 通过条件：
   - iPhone target 能安装到真机。
   - Watch App 随 iPhone App 安装到已配对 Apple Watch。

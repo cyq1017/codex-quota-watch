@@ -67,12 +67,13 @@ scripts/configure-ios-identifiers.sh --bundle-id com.yourname.CodexQuota
 open ios-watch/CodingQuota.xcodeproj
 ```
 
-在 Xcode 里给三个 target 选择同一个 Apple Team：
+在 Xcode 里给四个 target 选择同一个 Apple Team：
 
 ```text
 CodingQuota
 CodingQuota Watch App
 CodingQuotaWidgetExtension
+CodingQuotaWatchWidgetExtension
 ```
 
 然后选择你的实体 iPhone 运行 `CodingQuota` scheme。Watch App 会作为 companion Watch App 安装到已配对的 Apple Watch，iPhone Widget 会随 iPhone App 安装。
@@ -85,11 +86,14 @@ scripts/show-pairing-qr.sh --open-html
 
 iPhone App 点 `Scan Pairing QR`，扫浏览器页面里的二维码，扫码后点 `Fetch & Sync to Watch`，再打开 Watch App `Codex Quota`。二维码包含 `WATCH_TOKEN`，不要截图公开。
 
+安装并同步一次后，在 Apple Watch 上长按当前表盘，点“编辑”并进入“复杂功能”，选择 `Codex Quota`。矩形槽位信息最完整，可同时显示 5h / 7d 剩余额度。
+
 ## 现在能看什么
 
 - Codex 5h / 7d bucket、剩余额度、已用比例、重置时间。
 - Codex 今日 input / output / cache token 摘要。
 - Apple Watch 打开时主动刷新；失败时显示最近一次 iPhone 同步快照。
+- Apple Watch 表盘 Complication 常驻显示 5h / 7d 剩余额度，支持矩形、圆形、角落和单行样式。
 - iPhone small / medium Widget 显示最近一次 iPhone 成功同步的快照。
 
 ## 本次发布范围
@@ -123,6 +127,10 @@ cd agent && python3 -m pytest
 swift test --package-path ios-watch
 scripts/check-public-ready.sh --worktree
 ```
+
+## 上游项目
+
+本仓库基于 [cyq1017/codex-quota-watch](https://github.com/cyq1017/codex-quota-watch) 开发，并保留原项目提交历史与 AGPL-3.0 许可。
 
 ## License
 
